@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>☕ Cafe App</title>
+  <!-- 전역 스타일 변수 및 리셋 -->
+  <link rel="stylesheet" href="css/variables.css">
+  <!-- 메인 페이지 전용 스타일 -->
+  <link rel="stylesheet" href="index.css">
+  <!-- Noto Sans KR 폰트 추가 (variables.css에서 선언됨) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 헤더 / 내비게이션 -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">☕</span>
+        <span class="logo-text">Cafe App</span>
+      </a>
+      <nav class="main-nav">
+        <a href="menus/list.html" class="nav-item">메뉴 조회</a>
+        <a href="basket/list.html" class="nav-item">장바구니</a>
+        <a href="orders/list.html" class="nav-item">주문 내역</a>
+        <a href="my/index.html" class="nav-item">마이페이지</a>
+        <a href="admin/menus/list.html" class="nav-item admin-link">관리자</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Premium Coffee & Dessert</span>
+      <h1 class="hero-title">일상에 특별한<br>쉼표를 더하다</h1>
+      <p class="hero-subtitle">엄선된 원두로 내린 커피와 매일 아침 구워내는 신선한 베이커리를 만나보세요.</p>
+      <div class="hero-actions">
+        <a href="menus/list.html" class="btn btn-primary">주문하러 가기</a>
+        <a href="#recommendations" class="btn btn-outline">추천 메뉴 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 브랜드 강점 (미니멀 서비스 소개) -->
+  <section class="features-section">
+    <div class="container">
+      <div class="feature-item">
+        <div class="feature-icon">🌿</div>
+        <h3>신선한 원두</h3>
+        <p>친환경 농가에서 엄선한 스페셜티 생두를 매일 직접 로스팅합니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🥐</div>
+        <h3>당일 제조 베이커리</h3>
+        <p>방부제를 사용하지 않고 매일 아침 매장에서 갓 구워냅니다.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🛵</div>
+        <h3>빠른 픽업 & 배달</h3>
+        <p>앱으로 주문하고 기다림 없이 빠르게 받아보세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 추천 메뉴 섹션 (Glassmorphism 적용) -->
+  <section id="recommendations" class="recommend-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">오늘의 추천 메뉴</h2>
+        <p class="section-subtitle">많은 분들이 사랑하는 Cafe App의 시그니처 메뉴를 소개합니다.</p>
+      </div>
+
+      <!-- 추천 메뉴 리스트 그리드 -->
+      <div class="recommend-grid" id="recommendGrid">
+        <!-- JS에서 동적으로 추천 카드가 생성되어 렌더링됩니다. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>☕ Cafe App</h3>
+        <p>주소: 서울시 강남구 테헤란로 123 | 대표: 멋사카페</p>
+        <p>고객센터: 1588-0000 | 이메일: support@cafeapp.com</p>
+        <p class="copyright">&copy; 2026 Cafe App. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <h4>바로가기</h4>
+        <a href="menus/list.html">메뉴 조회</a>
+        <a href="basket/list.html">장바구니</a>
+        <a href="orders/list.html">주문 내역</a>
+        <a href="admin/menus/list.html">관리자 페이지</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 메인 페이지 로직 (ES Module 방식 사용) -->
+  <script type="module" src="index.js"></script>
+</body>
+</html>

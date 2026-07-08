@@ -1,0 +1,501 @@
+/* ==========================================================================
+   ☕ Cafe App - Main Page Stylesheet (index.css)
+   ========================================================================== */
+
+/* ===== 공통 레이아웃 컨테이너 ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--sp-md);
+}
+
+/* ===== 헤더 / 내비게이션 ===== */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(250, 246, 241, 0.85); /* --bg-page와 유사하되 투명도 부여 */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--sp-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+}
+
+.logo-icon {
+  font-size: 1.4rem;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+}
+
+.nav-item {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: var(--sp-xs) 0;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--color-primary);
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.2s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.admin-link {
+  color: var(--color-primary-light);
+  font-weight: 700;
+  background-color: var(--color-secondary);
+  padding: var(--sp-xs) var(--sp-sm);
+  border-radius: var(--border-radius-sm);
+}
+
+.admin-link:hover {
+  background-color: var(--color-primary);
+  color: var(--text-on-primary) !important;
+}
+
+.admin-link::after {
+  display: none;
+}
+
+/* ===== 히어로 섹션 ===== */
+.hero-section {
+  position: relative;
+  padding: var(--sp-3xl) 0;
+  background-image: linear-gradient(135deg, #efe5dc 0%, #FAF6F1 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  text-align: center;
+}
+
+/* 잔잔한 조명 효과 */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 171, 64, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 var(--sp-md);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  margin-bottom: var(--sp-md);
+  background-color: rgba(255, 171, 64, 0.1);
+  padding: var(--sp-xs) var(--sp-md);
+  border-radius: 50px;
+}
+
+.hero-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1.3;
+  margin-bottom: var(--sp-md);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--sp-xl);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--sp-md);
+  justify-content: center;
+}
+
+/* 공통 버튼 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-md) var(--sp-xl);
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: var(--font-size-base);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--text-on-primary);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
+  transform: translateY(-2px);
+}
+
+/* ===== 브랜드 강점 섹션 ===== */
+.features-section {
+  padding: var(--sp-2xl) 0;
+  background-color: #FAF6F1;
+}
+
+.features-section .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-xl);
+}
+
+.feature-item {
+  background-color: var(--bg-card);
+  padding: var(--sp-xl) var(--sp-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--bg-card-hover);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--sp-md);
+}
+
+.feature-item h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--sp-sm);
+}
+
+.feature-item p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== 추천 메뉴 섹션 (Glassmorphism) ===== */
+.recommend-section {
+  padding: var(--sp-3xl) 0;
+  background-image: linear-gradient(180deg, #FAF6F1 0%, #f3ede4 100%);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--sp-2xl);
+}
+
+.section-title {
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--sp-sm);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+}
+
+.recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-lg);
+}
+
+/* Glassmorphism 카드 스타일 */
+.recommend-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.recommend-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-card-hover);
+  border-color: var(--color-secondary);
+}
+
+.card-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: rgba(92, 61, 46, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: var(--color-primary-light);
+  position: relative;
+}
+
+.card-category {
+  position: absolute;
+  top: var(--sp-md);
+  left: var(--sp-md);
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-xs);
+  padding: var(--sp-xs) var(--sp-sm);
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+.card-content {
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--sp-xs);
+  font-weight: 700;
+}
+
+.card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--sp-md);
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(92, 61, 46, 0.1);
+  padding-top: var(--sp-md);
+}
+
+.card-price {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.btn-card-order {
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
+  border: none;
+  font-size: var(--font-size-xs);
+  padding: var(--sp-sm) var(--sp-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-card-order:hover {
+  background-color: var(--color-accent);
+  color: var(--text-primary);
+}
+
+/* ===== 푸터 ===== */
+.main-footer {
+  background-color: var(--color-primary-dark);
+  color: #EFE5DC;
+  padding: var(--sp-2xl) 0;
+  border-top: 5px solid var(--color-accent);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--sp-md);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-2xl);
+  flex-wrap: wrap;
+}
+
+.footer-info {
+  flex: 2;
+  min-width: 300px;
+}
+
+.footer-info h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-accent);
+  margin-bottom: var(--sp-md);
+}
+
+.footer-info p {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: #D7CCC8;
+}
+
+.copyright {
+  margin-top: var(--sp-lg);
+  color: var(--text-muted) !important;
+}
+
+.footer-links {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+}
+
+.footer-links h4 {
+  font-size: var(--font-size-base);
+  color: #FFFFFF;
+  margin-bottom: var(--sp-xs);
+}
+
+.footer-links a {
+  font-size: var(--font-size-sm);
+  color: #D7CCC8;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+/* ===== 애니메이션 ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 반응형 미디어 쿼리 ===== */
+@media (max-width: 1024px) {
+  .recommend-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: var(--sp-md);
+  }
+  
+  .features-section .container {
+    grid-template-columns: 1fr;
+    gap: var(--sp-md);
+  }
+
+  .recommend-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: var(--sp-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .recommend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-md);
+  }
+}

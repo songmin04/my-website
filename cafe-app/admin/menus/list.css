@@ -1,0 +1,199 @@
+/* 레이아웃 구성 */
+body {
+  background-color: #fcfaf7; /* 크림 톤 배경 */
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 관리자 헤더 스타일 */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaddcf;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a3b32; /* 깊은 브라운 */
+}
+
+.admin-nav a {
+  text-decoration: none;
+  color: #8c7b70;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.admin-nav a.active {
+  color: #4a3b32;
+  font-weight: bold;
+  border-bottom: 2px solid #4a3b32;
+  padding-bottom: 4px;
+}
+
+/* 페이지 상단 타이틀 구역 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 20px 0;
+}
+
+.page-header h2 {
+  color: #4a3b32;
+  margin: 0;
+}
+
+/* 버튼 컴포넌트 */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #4a3b32;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #382c25;
+}
+
+/* 카테고리 탭 */
+.category-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  background: #ffffff;
+  border: 1px solid #eaddcf;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #6e5d53;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: #4a3b32;
+  color: #fff;
+  border-color: #4a3b32;
+}
+
+/* 반응형 메뉴 카드 그리드 */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding-bottom: 60px;
+}
+
+/* Glassmorphism 스타일이 은은하게 적용된 메뉴 카드 */
+.menu-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(234, 221, 207, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(74, 59, 50, 0.03);
+}
+
+.card-body h3 {
+  margin: 8px 0;
+  color: #332720;
+}
+
+.menu-category {
+  font-size: 0.75rem;
+  background-color: #f3ece4;
+  color: #8c7b70;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.menu-desc {
+  font-size: 0.85rem;
+  color: #7a6b61;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+/* 카드 하단 및 액션 버튼 구역 */
+.card-footer-wrapper {
+  border-top: 1px dashed #eaddcf;
+  padding-top: 15px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.menu-price {
+  font-weight: bold;
+  color: #4a3b32;
+  font-size: 1.1rem;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status-badge.available {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-sm {
+  flex: 1;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  background-color: #f3ece4;
+  color: #4a3b32;
+}
+
+.btn-outline {
+  border: 1px solid #4a3b32;
+  color: #4a3b32;
+}
+
+.btn-secondary:hover { background-color: #eaddcf; }
+.btn-outline:hover { background-color: #4a3b32; color: #fff; }

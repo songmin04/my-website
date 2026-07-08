@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 상세 | Cafe Admin</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div>
+      <a class="back-link" href="list.html">목록으로</a>
+      <h1 id="pageTitle">메뉴 상세</h1>
+    </div>
+    <div class="header-actions" id="headerActions"></div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="detail-card" id="detailCard">
+      <div class="detail-layout">
+        <div class="menu-visual">
+          <span>이미지 없음</span>
+        </div>
+        <div class="menu-meta">
+          <span class="category-pill"></span>
+          <div>
+            <h2></h2>
+            <p class="price"></p>
+          </div>
+          <p class="description"></p>
+          <div class="info-grid">
+            <div class="info-item">
+              <span>메뉴 ID</span>
+              <strong></strong>
+            </div>
+            <div class="info-item">
+              <span>카테고리 코드</span>
+              <strong></strong>
+            </div>
+            <div class="info-item">
+              <span>이미지 URL</span>
+              <strong></strong>
+            </div>
+            <div class="info-item">
+              <span>판매 상태</span>
+              <strong>판매중</strong>
+            </div>
+          </div>
+          <div class="detail-actions">
+            <a href="list.html">목록</a>
+            <a class="primary-action" href="edit.html">수정하기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../js/data.js"></script>
+  <script src="../../js/utils.js"></script>
+  <script src="detail.js"></script>
+</body>
+</html>
