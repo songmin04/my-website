@@ -9,11 +9,11 @@ const detailCard = $('#detailCard');
 
 function renderNotFound() {
   pageTitle.textContent = '메뉴를 찾을 수 없습니다';
-  headerActions.innerHTML = '<a class="primary-action" href="create.html">메뉴 추가</a>';
+  headerActions.innerHTML = '<a class="primary-action" href="create">메뉴 추가</a>';
   detailCard.innerHTML = `
     <div class="empty-state">
       <p>삭제되었거나 존재하지 않는 메뉴입니다.</p>
-      <a class="action-button" href="list.html">목록으로 돌아가기</a>
+      <a class="action-button" href="list">목록으로 돌아가기</a>
     </div>
   `;
 }
@@ -21,7 +21,7 @@ function renderNotFound() {
 function renderDetail(menu) {
   pageTitle.textContent = menu.name;
   headerActions.innerHTML = `
-    <a class="primary-action" href="edit.html?id=${encodeURIComponent(menu.id)}">수정</a>
+    <a class="primary-action" href="edit?id=${encodeURIComponent(menu.id)}">수정</a>
     <button class="danger-action" type="button" id="deleteButton">삭제</button>
   `;
 
@@ -58,8 +58,8 @@ function renderDetail(menu) {
           </div>
         </div>
         <div class="detail-actions">
-          <a href="list.html">목록</a>
-          <a class="primary-action" href="edit.html?id=${encodeURIComponent(menu.id)}">수정하기</a>
+          <a href="list">목록</a>
+          <a class="primary-action" href="edit?id=${encodeURIComponent(menu.id)}">수정하기</a>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ function renderDetail(menu) {
   $('#deleteButton').addEventListener('click', () => {
     if (confirm(`'${menu.name}' 메뉴를 삭제할까요?`)) {
       deleteMenu(menu.id);
-      window.location.href = 'list.html';
+      window.location.href = 'list';
     }
   });
 }

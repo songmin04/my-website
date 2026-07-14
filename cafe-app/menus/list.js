@@ -36,7 +36,7 @@ function renderMenus(categoryFilter = "all") {
       menu.nutrition.caffeine / menu.nutrition.servingSize >= 0.15;
 
     const card = document.createElement("a");
-    card.href = `./detail.html?id=${menu.id}`;
+    card.href = `./detail?id=${menu.id}`;
     card.className = "menu-card";
 
     card.innerHTML = `

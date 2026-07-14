@@ -6,7 +6,7 @@ const cancelBtn = $('#cancelBtn');
 
 if (cancelBtn) {
   cancelBtn.addEventListener('click', () => {
-    window.location.href = 'list.html';
+    window.location.href = 'list';
   });
 }
 
@@ -36,6 +36,6 @@ if (createForm) {
 
     addMenu(newMenu);
     alert('새 메뉴가 등록되었습니다!');
-    window.location.href = 'list.html';
+    window.location.href = 'list';
   });
 }

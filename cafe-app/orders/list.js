@@ -20,7 +20,7 @@ function renderOrders() {
       <div class="empty-orders">
         <div class="empty-icon">📋</div>
         <p>주문 내역이 없습니다.</p>
-        <a href="../menus/list.html" class="shop-btn">메뉴 주문하러 가기</a>
+        <a href="../menus/list" class="shop-btn">메뉴 주문하러 가기</a>
       </div>
     `;
     return;
@@ -48,7 +48,7 @@ function renderOrders() {
           <div class="order-price">${formatPrice(order.total)}</div>
         </div>
         <div class="order-card-footer">
-          <a href="detail.html?id=${order.id}" class="detail-link-btn">주문 상세 보기</a>
+          <a href="detail?id=${order.id}" class="detail-link-btn">주문 상세 보기</a>
         </div>
       </div>
     `;

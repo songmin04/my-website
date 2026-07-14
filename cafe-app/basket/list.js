@@ -61,7 +61,7 @@ function renderBasket() {
     basketItemsContainer.innerHTML = `
       <div class="empty-basket">
         <p>장바구니가 비어 있습니다.</p>
-        <a href="../menus/list.html" class="empty-basket-btn">메뉴 보러가기</a>
+        <a href="../menus/list" class="empty-basket-btn">메뉴 보러가기</a>
       </div>
     `;
     updateSummary();
@@ -190,7 +190,7 @@ orderSubmitBtn.addEventListener('click', () => {
   clearCart();
 
   // 주문 내역 목록 페이지로 이동 (없으면 일단 홈으로)
-  window.location.href = '../orders/list.html';
+  window.location.href = '../orders/list';
 });
 
 // 초기 렌더링

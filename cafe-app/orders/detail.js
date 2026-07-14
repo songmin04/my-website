@@ -111,7 +111,7 @@ function showError(message) {
     <div class="error-card">
       <div class="error-icon">⚠️</div>
       <p class="error-message">${escapeHtml(message)}</p>
-      <a href="list.html" class="error-btn">주문 내역으로 돌아가기</a>
+      <a href="list" class="error-btn">주문 내역으로 돌아가기</a>
     </div>
   `;
 }

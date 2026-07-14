@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!order) {
     alert('존재하지 않는 주문입니다.');
-    location.href = 'list.html';
+    location.href = 'list';
     return;
   }
 
