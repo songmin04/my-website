@@ -1,5 +1,6 @@
-// 청사진 폴더 구조에 맞춘 정확한 상대 경로 (상위로 3번 이동)
-import { getStoredMenus, CATEGORIES } from '../../../js/data.js';
+// 청사진 폴더 구조에 맞춘 정확한 상대 경로
+import { getStoredMenus, CATEGORIES } from '../../js/data.js';
+import { getCategoryName } from '../../js/utils.js';
 
 const menuGrid = document.getElementById('menuGrid');
 const tabButtons = document.querySelectorAll('.tab-btn');
@@ -39,7 +40,7 @@ function renderMenus(categoryFilter = 'all') {
     
     card.innerHTML = `
       <div class="card-body">
-        <span class="menu-category">${categoryMap[menu.category] || menu.category}</span>
+        <span class="menu-category">${getCategoryName(menu.category) || menu.category}</span>
         <h3>${menu.name}</h3>
         <p class="menu-desc">${menu.description || '설명이 없습니다.'}</p>
       </div>

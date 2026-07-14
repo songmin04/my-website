@@ -1,0 +1,310 @@
+/* 전역 초기화 및 모던 폰트 설정 */
+body {
+  background-color: #fcfaf7; /* 따뜻하고 부드러운 크림색 */
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: var(--text-primary, #332720);
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 상단 헤더 */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaddcf;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a3b32; /* 깊고 따스한 에스프레소 브라운 */
+}
+
+.app-nav a {
+  text-decoration: none;
+  color: #8c7b70;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.app-nav a:hover,
+.app-nav a.active {
+  color: #4a3b32;
+  font-weight: bold;
+}
+
+.app-nav a.active {
+  border-bottom: 2px solid #4a3b32;
+  padding-bottom: 4px;
+}
+
+/* 메인 영역 */
+.app-main {
+  padding: 40px 0 80px;
+}
+
+/* 헤더 & 뒤로가기 */
+.header-with-back {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #8c7b70;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: color 0.2s;
+  width: fit-content;
+}
+
+.back-link:hover {
+  color: #4a3b32;
+}
+
+.header-with-back h2 {
+  font-size: 1.8rem;
+  color: #4a3b32;
+  margin: 0;
+}
+
+/* 상세 내역 카드 (Glassmorphism 적용) */
+.order-detail-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(234, 221, 207, 0.6);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(74, 59, 50, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+/* 카드 헤더 */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #f3ece4;
+  padding-bottom: 16px;
+}
+
+.detail-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-date {
+  font-size: 0.9rem;
+  color: #8c7b70;
+}
+
+.detail-id {
+  font-size: 1.3rem;
+  color: #4a3b32;
+  margin: 0;
+}
+
+/* 주문 상태 배지 */
+.status-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-confirmed {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-preparing {
+  background-color: #e2f0d9;
+  color: #385723;
+}
+
+.status-ready {
+  background-color: #cfe2ff;
+  color: #0a58ca;
+}
+
+.status-completed {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* 상세 섹션 */
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 1.05rem;
+  color: #8c7b70;
+  margin: 0;
+  border-bottom: 1px dashed #f3ece4;
+  padding-bottom: 8px;
+  font-weight: bold;
+}
+
+/* 주문 메뉴 리스트 */
+.detail-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-cat {
+  font-size: 0.75rem;
+  color: #8c7b70;
+  background-color: #f3ece4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+  font-weight: bold;
+}
+
+.item-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #332720;
+}
+
+.item-calc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.unit-price-qty {
+  font-size: 0.9rem;
+  color: #8c7b70;
+}
+
+.item-subtotal {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #4a3b32;
+}
+
+/* 결제 정보 & 진행 정보 */
+.payment-summary, .order-progress-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-row, .progress-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #6e5d53;
+}
+
+.total-row {
+  border-top: 1px dashed #eaddcf;
+  padding-top: 12px;
+  margin-top: 4px;
+  color: #332720;
+}
+
+.total-price {
+  font-size: 1.3rem;
+  color: #4a3b32;
+  font-weight: bold;
+}
+
+.progress-label {
+  color: #8c7b70;
+}
+
+.progress-value {
+  color: #332720;
+  font-weight: bold;
+}
+
+.highlight-status {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* 에러 상태 */
+.error-card {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.error-message {
+  font-size: 1.05rem;
+  color: #c0392b;
+  margin: 0 0 20px;
+}
+
+.error-btn {
+  display: inline-block;
+  background-color: #4a3b32;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.error-btn:hover {
+  background-color: #382c25;
+}
+
+/* 반응형 */
+@media (max-width: 576px) {
+  .detail-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

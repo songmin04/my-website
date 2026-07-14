@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 수정 | Cafe Admin</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../index.css"> <!-- 사이드바/공통 스타일 공유 -->
+  <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">☕ Cafe Admin</div>
+      <nav class="menu-links">
+        <a href="/admin/index.html">대시보드</a>
+        <a href="/admin/menus/list.html" class="active">메뉴 관리</a>
+        <a href="/admin/orders/list.html">주문 관리</a>
+        <a href="/index.html" class="home-link">고객 페이지로</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <button type="button" onclick="location.href='list.html'" class="back-btn">← 목록으로</button>
+        <h1 id="pageTitle">메뉴 수정</h1>
+      </header>
+
+      <form id="editForm" class="menu-form">
+        <div class="form-group">
+          <label for="name">메뉴명 <span class="required">*</span></label>
+          <input type="text" id="name" required placeholder="예: 아이스 아메리카노">
+        </div>
+
+        <div class="form-group">
+          <label for="category">카테고리 <span class="required">*</span></label>
+          <select id="category" required>
+            <option value="">카테고리 선택</option>
+            <option value="coffee">커피</option>
+            <option value="non-coffee">논커피</option>
+            <option value="tea">티</option>
+            <option value="smoothie">스무디/프라페</option>
+            <option value="ade">에이드/주스</option>
+            <option value="bakery">베이커리</option>
+            <option value="dessert">디저트</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="price">가격 <span class="required">*</span></label>
+          <input type="number" id="price" required min="0" placeholder="예: 3500">
+        </div>
+
+        <div class="form-group">
+          <label for="image">이미지 URL</label>
+          <input type="url" id="image" placeholder="https://example.com/image.jpg">
+        </div>
+
+        <div class="form-group">
+          <label for="description">설명</label>
+          <textarea id="description" rows="4" placeholder="메뉴에 대한 설명을 적어주세요."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-cancel" id="cancelBtn">취소</button>
+          <button type="submit" class="btn btn-submit">수정하기</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script type="module" src="edit.js"></script>
+</body>
+</html>

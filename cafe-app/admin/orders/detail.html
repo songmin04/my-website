@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카페 관리자 - 주문 상세</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">☕ Cafe Admin</div>
+      <nav class="menu-links">
+        <a href="/admin/index.html">대시보드</a>
+        <a href="/admin/menus/list.html">메뉴 관리</a>
+        <a href="/admin/orders/list.html" class="active">주문 관리</a>
+        <a href="/index.html" class="home-link">고객 페이지로</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <button onclick="location.href='list.html'" class="back-btn">← 목록으로</button>
+        <h1>주문 상세 확인</h1>
+      </header>
+
+      <div class="detail-grid">
+        <!-- 왼쪽: 주문 상품 정보 -->
+        <div class="detail-main glass">
+          <h2>주문 메뉴 목록</h2>
+          <div id="orderItemsContainer">
+            <!-- JS 동적 렌더링 -->
+          </div>
+          <div class="price-summary">
+            <span>총 결제금액</span>
+            <span class="total-price" id="totalPrice">0원</span>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 주문 요약 및 처리 정보 -->
+        <div class="detail-side glass">
+          <h2>주문 상태 제어</h2>
+          <div class="info-group">
+            <label>주문 번호</label>
+            <p id="orderId">-</p>
+          </div>
+          <div class="info-group">
+            <label>주문 일시</label>
+            <p id="orderTime">-</p>
+          </div>
+          <div class="info-group">
+            <label>주문 방식</label>
+            <p id="orderType">-</p>
+          </div>
+          <div class="info-group">
+            <label>현재 상태</label>
+            <p><span class="badge" id="currentStatusBadge">-</span></p>
+          </div>
+          
+          <div class="action-zone">
+            <label>상태 빠르게 전환</label>
+            <div class="btn-group">
+              <button class="action-btn" id="btnNextStatus">제조 시작</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="detail.js"></script>
+</body>
+</html>

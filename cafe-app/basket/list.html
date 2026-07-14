@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니 | Cafe App</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="list.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">☕ Cafe App</div>
+      <nav class="app-nav">
+        <a href="../index.html">홈</a>
+        <a href="../menus/list.html">메뉴판</a>
+        <a href="list.html" class="active">장바구니</a>
+        <a href="../orders/list.html">주문내역</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="basket-section">
+        <div class="section-header">
+          <h2>내 장바구니</h2>
+        </div>
+
+        <div class="basket-layout">
+          <div class="basket-items-column">
+            <div class="basket-items" id="basketItems">
+              <!-- 장바구니 품목 목록이 여기에 동적으로 추가됩니다 -->
+            </div>
+            <a href="../menus/list.html" class="add-more-btn is-hidden" id="addMoreBtn">+ 메뉴 추가</a>
+          </div>
+
+          <div class="order-summary-card">
+            <h3>주문 방식</h3>
+            <div class="order-type-buttons" id="orderTypeButtons">
+              <button type="button" class="order-type-btn active" data-type="dine-in">매장</button>
+              <button type="button" class="order-type-btn" data-type="takeout">포장</button>
+              <button type="button" class="order-type-btn" data-type="delivery">배달</button>
+            </div>
+            <p class="delivery-warning is-hidden" id="deliveryWarning"></p>
+
+            <label class="coupon-check-row">
+              <input type="checkbox" id="couponCheckbox">
+              <span>보유 쿠폰 사용 <span class="coupon-hint">(10% 할인)</span></span>
+            </label>
+
+            <h3>결제 예정 금액</h3>
+            <div class="summary-row">
+              <span>상품 합계</span>
+              <span id="itemsTotal">0원</span>
+            </div>
+            <div class="summary-row is-hidden" id="couponDiscountRow">
+              <span>쿠폰 할인</span>
+              <span id="couponDiscountValue">-0원</span>
+            </div>
+            <div class="summary-row">
+              <span id="deliveryFeeLabel">배달팁</span>
+              <span id="deliveryFeeValue">0원</span>
+            </div>
+            <hr class="summary-divider">
+            <div class="summary-row total-row">
+              <span>최종 결제 금액</span>
+              <strong id="finalTotal">0원</strong>
+            </div>
+            <button class="order-submit-btn" id="orderSubmitBtn" type="button" disabled>주문하기</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="list.js"></script>
+</body>
+</html>

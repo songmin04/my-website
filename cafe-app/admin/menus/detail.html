@@ -5,59 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>메뉴 상세 | Cafe Admin</title>
   <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../index.css"> <!-- 사이드바/공통 스타일 공유 -->
   <link rel="stylesheet" href="detail.css">
 </head>
 <body>
-  <header class="admin-header">
-    <div>
-      <a class="back-link" href="list.html">목록으로</a>
-      <h1 id="pageTitle">메뉴 상세</h1>
-    </div>
-    <div class="header-actions" id="headerActions"></div>
-  </header>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">☕ Cafe Admin</div>
+      <nav class="menu-links">
+        <a href="/admin/index.html">대시보드</a>
+        <a href="/admin/menus/list.html" class="active">메뉴 관리</a>
+        <a href="/admin/orders/list.html">주문 관리</a>
+        <a href="/index.html" class="home-link">고객 페이지로</a>
+      </nav>
+    </aside>
 
-  <main class="admin-shell">
-    <section class="detail-card" id="detailCard">
-      <div class="detail-layout">
-        <div class="menu-visual">
-          <span>이미지 없음</span>
-        </div>
-        <div class="menu-meta">
-          <span class="category-pill"></span>
-          <div>
-            <h2></h2>
-            <p class="price"></p>
-          </div>
-          <p class="description"></p>
-          <div class="info-grid">
-            <div class="info-item">
-              <span>메뉴 ID</span>
-              <strong></strong>
-            </div>
-            <div class="info-item">
-              <span>카테고리 코드</span>
-              <strong></strong>
-            </div>
-            <div class="info-item">
-              <span>이미지 URL</span>
-              <strong></strong>
-            </div>
-            <div class="info-item">
-              <span>판매 상태</span>
-              <strong>판매중</strong>
-            </div>
-          </div>
-          <div class="detail-actions">
-            <a href="list.html">목록</a>
-            <a class="primary-action" href="edit.html">수정하기</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <main class="main-content">
+      <header class="content-header">
+        <button type="button" onclick="location.href='list.html'" class="back-btn">← 목록으로</button>
+        <h1 id="pageTitle">메뉴 상세</h1>
+      </header>
 
-  <script src="../../js/data.js"></script>
-  <script src="../../js/utils.js"></script>
-  <script src="detail.js"></script>
+      <div class="header-actions" id="headerActions"></div>
+
+      <section class="detail-card" id="detailCard">
+        <div class="detail-layout">
+          <div class="menu-visual">
+            <span>이미지 없음</span>
+          </div>
+          <div class="menu-meta">
+            <span class="category-pill"></span>
+            <div>
+              <h2></h2>
+              <p class="price"></p>
+            </div>
+            <p class="description"></p>
+            <div class="info-grid">
+              <div class="info-item">
+                <span>메뉴 ID</span>
+                <strong></strong>
+              </div>
+              <div class="info-item">
+                <span>카테고리 코드</span>
+                <strong></strong>
+              </div>
+              <div class="info-item">
+                <span>이미지 URL</span>
+                <strong></strong>
+              </div>
+              <div class="info-item">
+                <span>판매 상태</span>
+                <strong>판매중</strong>
+              </div>
+            </div>
+            <div class="detail-actions">
+              <a href="list.html">목록</a>
+              <a class="primary-action" href="edit.html">수정하기</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="detail.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 // ==========================================================================
 
 import { getStoredMenus, CATEGORIES } from './js/data.js';
+import { addToCart as addMenuToCart } from './js/utils.js';
 
 // 1. 카테고리 매핑 생성 (ID -> 한글명)
 const categoryMap = CATEGORIES.reduce((acc, cat) => {
@@ -10,15 +11,7 @@ const categoryMap = CATEGORIES.reduce((acc, cat) => {
   return acc;
 }, {});
 
-// 2. 카테고리별 이모지 매핑
-const categoryEmojiMap = {
-  coffee: '☕',
-  tea: '🍵',
-  bakery: '🥐',
-  dessert: '🍰'
-};
-
-// 3. 추천 메뉴 선정 (카테고리별 첫 번째 아이템을 추천 메뉴로 동적 노출)
+// 2. 추천 메뉴 선정 (카테고리별 첫 번째 아이템을 추천 메뉴로 동적 노출)
 function getRecommendedMenus(menus) {
   const recommended = [];
   const categoriesSeen = new Set();
@@ -45,32 +38,17 @@ function getRecommendedMenus(menus) {
   return recommended;
 }
 
-// 4. 로컬스토리지를 이용한 장바구니 추가 구현 (utils.js와 데이터 포맷 호환)
+// 3. 장바구니 추가 (js/utils.js의 공용 장바구니 로직 사용)
 function addToCart(menu) {
-  const CART_KEY = 'cafe_cart';
-  const storedCart = localStorage.getItem(CART_KEY);
-  const cart = storedCart ? JSON.parse(storedCart) : [];
+  // HOT/ICE 둘 다 가능한 메뉴는 기본값(ICE)으로 담고, 상세 페이지에서 온도를 바꿀 수 있다
+  const defaultTemp = menu.temperature === 'hot' ? 'hot' : menu.temperature ? 'ice' : null;
+  addMenuToCart(menu.id, 1, defaultTemp);
 
-  const existing = cart.find(item => item.menuId === menu.id);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({
-      menuId: menu.id,
-      name: menu.name,
-      price: menu.price,
-      category: menu.category,
-      quantity: 1
-    });
-  }
-
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  
   // 알림 애니메이션이나 alert 창 띄우기
   alert(`🛒 [${menu.name}] 상품이 장바구니에 담겼습니다!`);
 }
 
-// 5. 추천 메뉴 렌더링 실행
+// 4. 추천 메뉴 렌더링 실행
 function init() {
   const recommendGrid = document.getElementById('recommendGrid');
   if (!recommendGrid) return;
@@ -84,16 +62,12 @@ function init() {
     const card = document.createElement('article');
     card.className = 'recommend-card';
 
-    const emoji = categoryEmojiMap[menu.category] || '☕';
     const koreanCategory = categoryMap[menu.category] || menu.category;
     const formattedPrice = Number(menu.price).toLocaleString() + '원';
 
     card.innerHTML = `
-      <div class="card-img-placeholder">
-        <span class="card-category">${koreanCategory}</span>
-        ${emoji}
-      </div>
       <div class="card-content">
+        <span class="card-category">${koreanCategory}</span>
         <h3 class="card-title">${menu.name}</h3>
         <p class="card-desc">${menu.description || 'Cafe App이 정성스레 준비한 스페셜 메뉴입니다.'}</p>
         <div class="card-footer">

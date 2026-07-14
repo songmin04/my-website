@@ -1,0 +1,492 @@
+/* 레이아웃 구성 */
+body {
+  background-color: #fcfaf7; /* 크림 톤 배경 */
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* 장바구니 담기 완료 팝업 */
+.cart-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(51, 39, 32, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.cart-modal-overlay.is-hidden {
+  display: none;
+}
+
+.cart-modal {
+  position: relative;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 32px 28px 28px;
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(74, 59, 50, 0.2);
+}
+
+.cart-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #8c7b70;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cart-modal-close:hover {
+  color: #4a3b32;
+}
+
+.cart-modal-message {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #332720;
+  margin: 0 0 20px;
+}
+
+.cart-modal-confirm {
+  width: 100%;
+  background-color: #4a3b32;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cart-modal-confirm:hover {
+  background-color: #382c25;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 관리자 헤더 스타일 */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaddcf;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a3b32; /* 깊은 브라운 */
+}
+
+.admin-nav a {
+  text-decoration: none;
+  color: #8c7b70;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.admin-nav a.active {
+  color: #4a3b32;
+  font-weight: bold;
+  border-bottom: 2px solid #4a3b32;
+  padding-bottom: 4px;
+}
+
+/* 페이지 상단 타이틀 구역 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 20px 0;
+}
+
+.page-header h2 {
+  color: #4a3b32;
+  margin: 0;
+}
+
+/* 버튼 컴포넌트 기본 */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: #4a3b32;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #382c25;
+}
+
+/* 목록으로 버튼 전용 테두리 및 텍스트 스타일 */
+.btn-outline {
+  border: 1px solid #eaddcf; /* 스크린샷처럼 부드럽고 연한 테두리 색상 */
+  background-color: #ffffff;
+  color: #4a3b32; /* 깊은 브라운 톤 텍스트 */
+  font-weight: 500;  /* 과하게 두껍지 않고 적당히 정갈한 두께 */
+  padding: 10px 18px; /* 양옆 여백 균형 조절 */
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: #f3ece4; /* 마우스를 올렸을 때 은은하게 변하는 배경색 */
+  border-color: #4a3b32;
+  color: #4a3b32;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1rem;
+}
+
+/* 상세 페이지 컨테이너 */
+.detail-container {
+  max-width: 600px;
+  margin: 40px auto 80px auto;
+}
+
+/* 상세 정보 카드 */
+.detail-card {
+  background: #ffffff;
+  border: 1px solid rgba(234, 221, 207, 0.6);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(74, 59, 50, 0.03);
+}
+
+.detail-body {
+  padding-bottom: 25px;
+}
+
+.menu-category {
+  font-size: 0.8rem;
+  background-color: #f3ece4;
+  color: #8c7b70;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-decaf {
+  font-size: 0.8rem;
+  background-color: #e3f5e8;
+  color: #1b6e3c;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.label-highcaf {
+  font-size: 0.8rem;
+  background-color: #fbe4e2;
+  color: #b71c1c;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.menu-title {
+  font-size: 1.8rem;
+  color: #332720;
+  margin: 15px 0 10px 0;
+}
+
+.menu-desc {
+  font-size: 1rem;
+  color: #7a6b61;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #f3ece4;
+}
+
+.price-label {
+  color: #8c7b70;
+  font-size: 1rem;
+}
+
+.menu-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a3b32;
+}
+
+/* 영양 & 알레르기 정보 아코디언 */
+.nutrition-section {
+  border-top: 1px solid #f3ece4;
+  margin-top: 5px;
+}
+
+.nutrition-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #332720;
+  cursor: pointer;
+}
+
+.nutrition-toggle .chevron {
+  transition: transform 0.2s ease;
+  color: #8c7b70;
+}
+
+.nutrition-toggle.open .chevron {
+  transform: rotate(180deg);
+}
+
+.nutrition-panel {
+  background-color: #fcfaf7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.nutrition-panel h4 {
+  font-size: 0.95rem;
+  color: #4a3b32;
+  margin: 20px 0 8px 0;
+}
+
+.nutrition-panel h4:first-child {
+  margin-top: 0;
+}
+
+.nutrition-caption {
+  font-size: 0.8rem;
+  color: #8c7b70;
+  margin: 0 0 10px 0;
+}
+
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+  border: 1px solid #eaddcf;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.nutrition-table th {
+  background-color: #f3ece4;
+  color: #8c7b70;
+  font-weight: 600;
+  width: 25%;
+}
+
+.nutrition-table td {
+  color: #332720;
+  width: 25%;
+}
+
+.allergen-list,
+.origin-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: #7a6b61;
+  line-height: 1.6;
+}
+
+/* HOT/ICE 온도 선택 */
+.temp-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #f3ece4;
+}
+
+.temp-label {
+  font-weight: 500;
+  color: #4a3b32;
+}
+
+.temp-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.temp-btn {
+  padding: 8px 16px;
+  border: 1px solid #eaddcf;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #8c7b70;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.temp-btn:hover {
+  border-color: #4a3b32;
+  color: #4a3b32;
+}
+
+.temp-btn.active {
+  background-color: #4a3b32;
+  color: #fff;
+  border-color: #4a3b32;
+}
+
+.temp-fixed {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background-color: #f3ece4;
+  color: #4a3b32;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* 하단 기능 영역 (선택 & 주문) */
+.detail-footer-wrapper {
+  border-top: 1px dashed #eaddcf;
+  padding-top: 25px;
+}
+
+/* 수량 조절 섹션 */
+.quantity-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quantity-label {
+  font-weight: 500;
+  color: #4a3b32;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eaddcf;
+  border-radius: 6px;
+  background-color: #fcfaf7;
+  overflow: hidden;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #4a3b32;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.qty-btn:hover {
+  background-color: #eaddcf;
+}
+
+.qty-count {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: #332720;
+}
+
+/* 총 결제 금액 섹션 */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.total-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #332720;
+}
+
+.total-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #4a3b32;
+}
+
+/* 안내 및 에러 메시지 */
+.loading-text, .error-box {
+  text-align: center;
+  padding: 50px 0;
+  color: #8c7b70;
+}
+
+.error-box p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .admin-nav a {
+    margin: 0 10px;
+  }
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 30px 0 15px 0;
+  }
+  .detail-container {
+    margin: 20px auto 40px auto;
+  }
+  .detail-card {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,102 @@
+.back-btn {
+  background: none;
+  border: none;
+  color: #8d6e63;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.detail-main, .detail-side {
+  padding: 2rem;
+}
+
+.detail-main h2, .detail-side h2 {
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 2px solid #efebe9;
+  padding-bottom: 0.5rem;
+}
+
+/* 아이템 리스트 */
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #efebe9;
+}
+
+.item-info .item-name {
+  font-weight: bold;
+}
+
+.item-info .item-options {
+  font-size: 0.85rem;
+  color: #8d6e63;
+  margin-top: 0.25rem;
+}
+
+.price-summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #d7ccc8;
+}
+
+.total-price {
+  color: #5d4037;
+}
+
+/* 우측 정보 폼 */
+.info-group {
+  margin-bottom: 1.5rem;
+}
+
+.info-group label, .action-zone label {
+  display: block;
+  font-size: 0.85rem;
+  color: #8d6e63;
+  margin-bottom: 0.4rem;
+}
+
+.info-group p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.action-zone {
+  margin-top: 2.5rem;
+  border-top: 1px solid #efebe9;
+  padding-top: 1.5rem;
+}
+
+.action-btn {
+  width: 100%;
+  background: #5d4037;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #3e2723;
+}
+
+@media (max-width: 992px) {
+  .detail-grid { grid-template-columns: 1fr; }
+}

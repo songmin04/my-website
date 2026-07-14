@@ -295,28 +295,16 @@
   border-color: var(--color-secondary);
 }
 
-.card-img-placeholder {
-  width: 100%;
-  height: 180px;
-  background-color: rgba(92, 61, 46, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.5rem;
-  color: var(--color-primary-light);
-  position: relative;
-}
-
 .card-category {
-  position: absolute;
-  top: var(--sp-md);
-  left: var(--sp-md);
-  background-color: var(--color-primary);
-  color: var(--text-on-primary);
+  display: inline-block;
+  width: fit-content;
+  background-color: rgba(92, 61, 46, 0.08);
+  color: var(--color-primary-dark);
   font-size: var(--font-size-xs);
   padding: var(--sp-xs) var(--sp-sm);
   border-radius: 50px;
   font-weight: 500;
+  margin-bottom: var(--sp-xs);
 }
 
 .card-content {

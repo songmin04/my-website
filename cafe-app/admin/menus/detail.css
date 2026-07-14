@@ -1,23 +1,10 @@
-.admin-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-md);
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: var(--sp-xl) var(--sp-lg) var(--sp-md);
-}
-
-.back-link {
-  color: var(--text-secondary);
-  display: inline-flex;
-  font-size: var(--font-size-sm);
-  font-weight: 800;
-  margin-bottom: var(--sp-sm);
-}
-
-h1 {
-  font-size: var(--font-size-2xl);
+.back-btn {
+  background: none;
+  border: none;
+  color: #8d6e63;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .header-actions,
@@ -25,6 +12,10 @@ h1 {
   display: flex;
   gap: var(--sp-sm);
   flex-wrap: wrap;
+}
+
+.header-actions {
+  margin-bottom: var(--sp-md);
 }
 
 .action-button,
@@ -43,6 +34,7 @@ h1 {
   background: rgba(255, 255, 255, 0.76);
   color: var(--text-primary);
   font-weight: 800;
+  text-decoration: none;
 }
 
 .primary-action {
@@ -58,12 +50,6 @@ h1 {
 
 .danger-action {
   color: #9C2E2E;
-}
-
-.admin-shell {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 var(--sp-lg) var(--sp-2xl);
 }
 
 .detail-card {
@@ -152,6 +138,10 @@ h1 {
   word-break: break-word;
 }
 
+.detail-actions {
+  margin-top: var(--sp-md);
+}
+
 .empty-state {
   padding: var(--sp-2xl);
   text-align: center;
@@ -164,11 +154,6 @@ h1 {
 }
 
 @media (max-width: 760px) {
-  .admin-header {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
   .detail-layout,
   .info-grid {
     grid-template-columns: 1fr;

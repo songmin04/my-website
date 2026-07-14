@@ -1,0 +1,376 @@
+/* 전역 초기화 및 모던 폰트 설정 */
+body {
+  background-color: #fcfaf7; /* 따뜻하고 부드러운 크림색 */
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: var(--text-primary, #332720);
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 상단 헤더 */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaddcf;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a3b32; /* 깊고 따스한 에스프레소 브라운 */
+}
+
+.app-nav a {
+  text-decoration: none;
+  color: #8c7b70;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.app-nav a:hover,
+.app-nav a.active {
+  color: #4a3b32;
+  font-weight: bold;
+}
+
+.app-nav a.active {
+  border-bottom: 2px solid #4a3b32;
+  padding-bottom: 4px;
+}
+
+/* 메인 영역 */
+.app-main {
+  padding: 40px 0 80px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  color: #4a3b32;
+  margin: 0 0 30px;
+}
+
+/* 장바구니 레이아웃 */
+.basket-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+  align-items: start;
+}
+
+/* 장바구니 품목 목록 컬럼 */
+.basket-items-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.basket-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-more-btn {
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  border: 1px dashed #d7ccc8;
+  color: #4a3b32;
+  padding: 14px 0;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.add-more-btn:hover {
+  background-color: #f3ece4;
+  border-color: #4a3b32;
+}
+
+.add-more-btn.is-hidden {
+  display: none;
+}
+
+/* 장바구니 개별 아이템 (Glassmorphism 적용) */
+.basket-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(234, 221, 207, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(74, 59, 50, 0.02);
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #332720;
+}
+
+.item-category {
+  font-size: 0.75rem;
+  color: #8c7b70;
+  background-color: #f3ece4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+  font-weight: bold;
+}
+
+.item-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4a3b32;
+  margin-top: 5px;
+}
+
+/* 수량 조절 및 삭제 */
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eaddcf;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.quantity-btn {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4a3b32;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.quantity-btn:hover {
+  background-color: #f3ece4;
+}
+
+.quantity-val {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #332720;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #c0392b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
+/* 주문 요약 카드 */
+.order-summary-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(234, 221, 207, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(74, 59, 50, 0.04);
+}
+
+.order-summary-card h3 {
+  font-size: 1.2rem;
+  color: #4a3b32;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #eaddcf;
+  padding-bottom: 12px;
+}
+
+/* 주문 방식 선택 */
+.order-type-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.order-type-btn {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #eaddcf;
+  color: #6e5d53;
+  padding: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.order-type-btn:hover {
+  border-color: #4a3b32;
+}
+
+.order-type-btn.active {
+  background: #4a3b32;
+  color: #fff;
+  border-color: #4a3b32;
+}
+
+.delivery-warning {
+  background-color: #fdecea;
+  color: #c0392b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 0 0 20px;
+}
+
+.delivery-warning.is-hidden {
+  display: none;
+}
+
+/* 쿠폰 사용 체크박스 */
+.coupon-check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #4a3b32;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.coupon-check-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #4a3b32;
+}
+
+.coupon-hint {
+  color: #8c7b70;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.summary-row.is-hidden {
+  display: none;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #6e5d53;
+}
+
+.summary-divider {
+  border: none;
+  border-top: 1px dashed #eaddcf;
+  margin: 16px 0;
+}
+
+.total-row {
+  font-size: 1.1rem;
+  color: #332720;
+  margin-bottom: 24px;
+}
+
+.total-row strong {
+  font-size: 1.4rem;
+  color: #4a3b32;
+}
+
+/* 주문 버튼 */
+.order-submit-btn {
+  width: 100%;
+  background-color: #4a3b32;
+  color: #ffffff;
+  border: none;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.order-submit-btn:hover:not(:disabled) {
+  background-color: #382c25;
+}
+
+.order-submit-btn:disabled {
+  background-color: #d1c7bd;
+  cursor: not-allowed;
+}
+
+/* 빈 상태 */
+.empty-basket {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px dashed #eaddcf;
+  border-radius: 12px;
+}
+
+.empty-basket p {
+  color: #8c7b70;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.empty-basket-btn {
+  display: inline-block;
+  background-color: #4a3b32;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.empty-basket-btn:hover {
+  background-color: #382c25;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .basket-layout {
+    grid-template-columns: 1fr;
+  }
+}

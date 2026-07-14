@@ -1,8 +1,13 @@
 // ============================================
+// 최상단으로 이동한 임포트 구문
+// ============================================
+import { CATEGORIES, ORDER_STATUS, MENU_ITEMS } from "./data.js";
+
+// ============================================
 // 공통 유틸리티
 // ============================================
 
-// ---- 가격 포�팅 ----
+// ---- 가격 포맷팅 ----
 function formatPrice(price) {
   return price.toLocaleString('ko-KR') + '원';
 }
@@ -24,7 +29,7 @@ function getStatusLabel(value) {
   return status ? status.label : value;
 }
 
-// ---- 날짜 포�팅 ----
+// ---- 날짜 포맷팅 ----
 function formatDate(date) {
   const d = new Date(date);
   const y = d.getFullYear();
@@ -50,12 +55,18 @@ function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
-function addToCart(menuId, quantity = 1) {
+// menuId는 숫자(장바구니 데이터)와 문자열(DOM data-id)이 섞여 들어올 수 있어 항상 String으로 비교한다
+function isSameCartLine(cartItem, menuId, temperature) {
+  return String(cartItem.menuId) === String(menuId) && (cartItem.temperature || null) === (temperature || null);
+}
+
+// HOT/ICE 옵션이 있는 메뉴는 (menuId, temperature) 조합으로 별도 장바구니 라인을 구분한다
+function addToCart(menuId, quantity = 1, temperature = null) {
   const cart = getCart();
-  const item = MENU_ITEMS.find(m => m.id === menuId);
+  const item = MENU_ITEMS.find(m => String(m.id) === String(menuId));
   if (!item) return;
 
-  const existing = cart.find(c => c.menuId === menuId);
+  const existing = cart.find(c => isSameCartLine(c, menuId, temperature));
   if (existing) {
     existing.quantity += quantity;
   } else {
@@ -64,24 +75,25 @@ function addToCart(menuId, quantity = 1) {
       name: item.name,
       price: item.price,
       category: item.category,
+      temperature: temperature || null,
       quantity
     });
   }
   saveCart(cart);
 }
 
-function removeFromCart(menuId) {
+function removeFromCart(menuId, temperature = null) {
   let cart = getCart();
-  cart = cart.filter(c => c.menuId !== menuId);
+  cart = cart.filter(c => !isSameCartLine(c, menuId, temperature));
   saveCart(cart);
 }
 
-function updateCartQuantity(menuId, quantity) {
+function updateCartQuantity(menuId, quantity, temperature = null) {
   const cart = getCart();
-  const item = cart.find(c => c.menuId === menuId);
+  const item = cart.find(c => isSameCartLine(c, menuId, temperature));
   if (item) {
     if (quantity <= 0) {
-      removeFromCart(menuId);
+      removeFromCart(menuId, temperature);
     } else {
       item.quantity = quantity;
       saveCart(cart);
@@ -89,6 +101,13 @@ function updateCartQuantity(menuId, quantity) {
   }
 }
 
+// 주문/장바구니 화면에서 메뉴명 뒤에 HOT/ICE 표시를 붙여준다
+function formatItemName(item) {
+  if (!item.temperature) return item.name;
+  return `${item.name} (${item.temperature === 'hot' ? 'HOT' : 'ICE'})`;
+}
+
+// 중복 정의 제거하고 하나만 유지
 function getCartTotal() {
   const cart = getCart();
   return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -113,12 +132,16 @@ function saveOrders(orders) {
   localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
 }
 
-function createOrder(items, total) {
+function createOrder(items, total, options = {}) {
   const orders = getOrders();
   const order = {
     id: generateId(),
     items,
     total,
+    orderType: options.orderType || 'dine-in',
+    subtotal: options.subtotal ?? total,
+    couponDiscount: options.couponDiscount || 0,
+    deliveryFee: options.deliveryFee || 0,
     status: ORDER_STATUS.PENDING.value,
     createdAt: new Date().toISOString(),
     completedAt: null
@@ -126,6 +149,16 @@ function createOrder(items, total) {
   orders.push(order);
   saveOrders(orders);
   return order;
+}
+
+const ORDER_TYPE_LABELS = {
+  'dine-in': '매장',
+  takeout: '포장',
+  delivery: '배달'
+};
+
+function getOrderTypeLabel(orderType) {
+  return ORDER_TYPE_LABELS[orderType] || orderType;
 }
 
 function getOrderById(id) {
@@ -160,3 +193,39 @@ function $$(selector, parent = document) {
 function renderList(container, items, renderFn) {
   container.innerHTML = items.map(renderFn).join('');
 }
+
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&' + 'amp;')
+    .replace(/</g, '&' + 'lt;')
+    .replace(/>/g, '&' + 'gt;')
+    .replace(/"/g, '&' + 'quot;')
+    .replace(/'/g, '&' + '#039;');
+}
+
+export {
+  formatPrice,
+  generateId,
+  getCategoryName,
+  getStatusLabel,
+  formatDate,
+  getCart,
+  saveCart,
+  addToCart,
+  removeFromCart,
+  updateCartQuantity,
+  getCartTotal,
+  clearCart,
+  getOrders,
+  saveOrders,
+  createOrder,
+  getOrderById,
+  updateOrderStatus,
+  formatItemName,
+  getOrderTypeLabel,
+  $,
+  $$,
+  renderList,
+  escapeHtml
+};

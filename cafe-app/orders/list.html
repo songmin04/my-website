@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주문 내역 | Cafe App</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="list.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">☕ Cafe App</div>
+      <nav class="app-nav">
+        <a href="../index.html">홈</a>
+        <a href="../menus/list.html">메뉴판</a>
+        <a href="../basket/list.html">장바구니</a>
+        <a href="list.html" class="active">주문내역</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="orders-section">
+        <div class="section-header">
+          <h2>나의 주문 내역</h2>
+          <p class="section-desc">주문 상태와 내역을 한눈에 확인할 수 있습니다.</p>
+        </div>
+
+        <div class="orders-list" id="ordersList">
+          <!-- 주문 목록이 동적으로 여기에 렌더링됩니다 -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="list.js"></script>
+</body>
+</html>

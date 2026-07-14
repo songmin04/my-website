@@ -1,3 +1,6 @@
+import { getMenuById, deleteMenu, CATEGORIES } from '../../js/data.js';
+import { formatPrice, escapeHtml, $, getCategoryName } from '../../js/utils.js';
+
 const params = new URLSearchParams(window.location.search);
 const menuId = params.get('id');
 const pageTitle = $('#pageTitle');
@@ -35,7 +38,7 @@ function renderDetail(menu) {
           <h2>${escapeHtml(menu.name)}</h2>
           <p class="price">${formatPrice(menu.price)}</p>
         </div>
-        <p class="description">${escapeHtml(menu.description)}</p>
+        <p class="description">${escapeHtml(menu.description || '설명이 없습니다.')}</p>
         <div class="info-grid">
           <div class="info-item">
             <span>메뉴 ID</span>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이페이지 | Cafe App</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">☕ Cafe App</div>
+      <nav class="app-nav">
+        <a href="../index.html">홈</a>
+        <a href="../menus/list.html">메뉴판</a>
+        <a href="../basket/list.html">장바구니</a>
+        <a href="../orders/list.html">주문내역</a>
+        <a href="index.html" class="active">마이페이지</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="my-section">
+        <div class="section-header">
+          <h2>마이페이지</h2>
+          <p class="section-desc">회원 정보 관리와 혜택을 확인하실 수 있습니다.</p>
+        </div>
+
+        <div class="my-layout">
+          <!-- 왼쪽 컬럼: 프로필 및 정보 수정 -->
+          <div class="profile-card">
+            <div class="profile-avatar">👤</div>
+            <div class="profile-info">
+              <h3 id="profileName">
+                <span class="name-text">홍길동</span> 
+                <span class="suffix">고객님</span>
+                <button type="button" class="edit-toggle-btn" id="editToggleBtn" aria-label="프로필 수정">✏️</button>
+              </h3>
+              <span class="user-grade badge-gold" id="userGrade">GOLD 등급</span>
+              <p class="user-phone" id="profilePhone">010-1234-5678</p>
+            </div>
+            
+            <form class="profile-edit-form is-hidden" id="profileForm">
+              <div class="form-group">
+                <label for="inputName">이름</label>
+                <input type="text" id="inputName" required placeholder="이름을 입력하세요">
+              </div>
+              <div class="form-group">
+                <label for="inputPhone">연락처</label>
+                <!-- 💡 모바일 숫자 패드를 띄우고 최대 길이를 13자로 제한(010-XXXX-XXXX)했습니다. -->
+                <input type="text" id="inputPhone" inputmode="numeric" maxlength="13" required placeholder="010-XXXX-XXXX">
+              </div>
+              <button type="submit" class="save-btn">정보 수정하기</button>
+            </form>
+          </div>
+
+          <!-- 오른쪽 컬럼: 활동 현황 & 혜택 -->
+          <div class="my-details">
+            <!-- 요약 스탯 -->
+            <div class="stats-grid">
+              <div class="stat-box">
+                <span class="stat-icon">☕</span>
+                <span class="stat-label">누적 주문수</span>
+                <strong class="stat-value" id="totalOrders">0회</strong>
+              </div>
+              <div class="stat-box">
+                <span class="stat-icon">🪙</span>
+                <span class="stat-label">누적 결제액</span>
+                <strong class="stat-value" id="totalSpent">0원</strong>
+              </div>
+              <div class="stat-box">
+                <span class="stat-icon">🎟️</span>
+                <span class="stat-label">보유 쿠폰</span>
+                <strong class="stat-value" id="couponCount">2장</strong>
+              </div>
+            </div>
+
+            <!-- 스탬프 카드 -->
+            <div class="stamp-card">
+              <h3>스탬프 카드</h3>
+              <p class="stamp-desc">음료 1잔당 스탬프 1개 적립! 10개 적립 시 무료 음료 쿠폰 증정</p>
+              <div class="stamps-container" id="stampsContainer">
+                <!-- 스탬프 10개가 동적으로 표시됩니다 -->
+              </div>
+              <p class="stamp-status" id="stampStatus">스탬프 적립 현황: 0 / 10</p>
+            </div>
+
+            <!-- 보유 쿠폰 내역 -->
+            <div class="coupons-section">
+              <h3>보유 쿠폰</h3>
+              <div class="coupon-list">
+                <div class="coupon-item">
+                  <div class="coupon-info">
+                    <span class="coupon-tag">무료 음료</span>
+                    <h4 class="coupon-name">신규 가입 환영 아메리카노 무료 쿠폰</h4>
+                    <span class="coupon-expiry">유효기간: 2026.12.31까지</span>
+                  </div>
+                  <div class="coupon-action">
+                    <span class="coupon-state">사용 가능</span>
+                  </div>
+                </div>
+                <div class="coupon-item">
+                  <div class="coupon-info">
+                    <span class="coupon-tag">10% 할인</span>
+                    <h4 class="coupon-name">베이커리류 10% 추가 할인 쿠폰</h4>
+                    <span class="coupon-expiry">유효기간: 2026.09.30까지</span>
+                  </div>
+                  <div class="coupon-action">
+                    <span class="coupon-state">사용 가능</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

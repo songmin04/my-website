@@ -1,0 +1,255 @@
+/* 전역 초기화 및 모던 폰트 설정 */
+body {
+  background-color: #fcfaf7; /* 따뜻하고 부드러운 크림색 */
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: var(--text-primary, #332720);
+}
+
+.app-container {
+  max-width: 800px; /* 주문 내역은 중앙 정렬 구조로 좀 더 슬림하게 배치 */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 상단 헤더 */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaddcf;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a3b32; /* 깊고 따스한 에스프레소 브라운 */
+}
+
+.app-nav a {
+  text-decoration: none;
+  color: #8c7b70;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.app-nav a:hover,
+.app-nav a.active {
+  color: #4a3b32;
+  font-weight: bold;
+}
+
+.app-nav a.active {
+  border-bottom: 2px solid #4a3b32;
+  padding-bottom: 4px;
+}
+
+/* 메인 영역 */
+.app-main {
+  padding: 40px 0 80px;
+}
+
+/* 섹션 헤더 */
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  color: #4a3b32;
+  margin: 0 0 8px;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: #8c7b70;
+  margin: 0;
+}
+
+/* 주문 목록 컨테이너 */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 주문 개별 카드 (Glassmorphism 적용) */
+.order-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(234, 221, 207, 0.6);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(74, 59, 50, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 59, 50, 0.05);
+}
+
+/* 카드 헤더 */
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #f3ece4;
+  padding-bottom: 12px;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-date {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #332720;
+}
+
+.order-id {
+  font-size: 0.8rem;
+  color: #8c7b70;
+}
+
+/* 주문 상태 배지 */
+.status-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-confirmed {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-preparing {
+  background-color: #e2f0d9;
+  color: #385723;
+}
+
+.status-ready {
+  background-color: #cfe2ff;
+  color: #0a58ca;
+}
+
+.status-completed {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* 카드 바디 */
+.order-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-summary-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4a3b32;
+}
+
+.order-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #332720;
+}
+
+/* 카드 푸터 */
+.order-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px dashed #f3ece4;
+  padding-top: 14px;
+}
+
+.detail-link-btn {
+  display: inline-block;
+  background-color: #f3ece4;
+  color: #4a3b32;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.detail-link-btn:hover {
+  background-color: #4a3b32;
+  color: #ffffff;
+}
+
+/* 주문 내역 빈 상태 */
+.empty-orders {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px dashed #eaddcf;
+  border-radius: 16px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-orders p {
+  color: #8c7b70;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.shop-btn {
+  display: inline-block;
+  background-color: #4a3b32;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.shop-btn:hover {
+  background-color: #382c25;
+}
+
+/* 반응형 */
+@media (max-width: 576px) {
+  .order-card-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .order-price {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카페 관리자 - 대시보드</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- 사이드바 내비게이션 -->
+    <aside class="sidebar">
+      <div class="logo">☕ Cafe Admin</div>
+      <nav class="menu-links">
+        <a href="/admin/index.html" class="active">대시보드</a>
+        <a href="/admin/menus/list.html">메뉴 관리</a>
+        <a href="/admin/orders/list.html">주문 관리</a>
+        <a href="/index.html" class="home-link">고객 페이지로</a>
+      </nav>
+    </aside>
+
+    <!-- 메인 콘텐츠 영역 -->
+    <main class="main-content">
+      <header class="content-header">
+        <h1>대시보드</h1>
+        <div class="date-display" id="currentDate">2026년 7월 14일</div>
+      </header>
+
+      <!-- 현황 요약 카드 (Glassmorphism) -->
+      <section class="summary-grid">
+        <div class="summary-card glass">
+          <h3>오늘의 매출</h3>
+          <p class="value" id="todaySales">0원</p>
+        </div>
+        <div class="summary-card glass">
+          <h3>신규 주문</h3>
+          <p class="value highlight" id="newOrdersCount">0건</p>
+        </div>
+        <div class="summary-card glass">
+          <h3>완료된 주문</h3>
+          <p class="value" id="completedOrdersCount">0건</p>
+        </div>
+      </section>
+
+      <!-- 하단 차트 및 최근 현황 -->
+      <section class="dashboard-details">
+        <div class="detail-box glass">
+          <h2>최근 들어온 주문</h2>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>주문번호</th>
+                  <th>주문시간</th>
+                  <th>메뉴</th>
+                  <th>금액</th>
+                  <th>상태</th>
+                </tr>
+              </thead>
+              <tbody id="recentOrdersTable">
+                <!-- JS에서 동적 렌더링 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>

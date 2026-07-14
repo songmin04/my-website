@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카페 관리자 - 주문 관리</title>
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../index.css"> <!-- 사이드바/테이블 공통 스타일 공유 -->
+  <link rel="stylesheet" href="list.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">☕ Cafe Admin</div>
+      <nav class="menu-links">
+        <a href="/admin/index.html">대시보드</a>
+        <a href="/admin/menus/list.html">메뉴 관리</a>
+        <a href="/admin/orders/list.html" class="active">주문 관리</a>
+        <a href="/index.html" class="home-link">고객 페이지로</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="content-header">
+        <h1>주문 실시간 관리</h1>
+      </header>
+
+      <div class="orders-box glass">
+        <div class="filter-bar">
+          <button class="filter-btn active" data-status="all">전체</button>
+          <button class="filter-btn" data-status="pending">대기</button>
+          <button class="filter-btn" data-status="preparing">제조중</button>
+          <button class="filter-btn" data-status="completed">완료</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>주문번호</th>
+                <th>주문시간</th>
+                <th>주문 내역</th>
+                <th>총 결제금액</th>
+                <th>상태 변경</th>
+              </tr>
+            </thead>
+            <tbody id="allOrdersTable">
+              <!-- JS 로딩 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="list.js"></script>
+</body>
+</html>

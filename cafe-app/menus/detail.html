@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 상세 | Cafe App</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <div class="logo">☕ Cafe App</div>
+      <nav class="admin-nav">
+        <a href="../index.html">홈</a>
+        <a href="list.html" class="active">메뉴판</a>
+        <a href="../basket/list.html">장바구니</a>
+        <a href="../orders/list.html">주문내역</a>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <div class="page-header">
+        <h2>메뉴 상세 정보</h2>
+        <a href="list.html" class="btn btn-outline">목록으로</a>
+      </div>
+
+      <!-- 동적으로 상세 내용이 렌더링될 구역 -->
+      <div class="detail-container" id="menuDetail">
+        <p class="loading-text">메뉴 정보를 불러오는 중입니다...</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- 장바구니 담기 완료 팝업 -->
+  <div class="cart-modal-overlay is-hidden" id="cartModalOverlay">
+    <div class="cart-modal">
+      <button type="button" class="cart-modal-close" id="cartModalClose" aria-label="닫기">×</button>
+      <p class="cart-modal-message" id="cartModalMessage">메뉴가 추가되었습니다.</p>
+      <button type="button" class="cart-modal-confirm" id="cartModalConfirm">장바구니로 이동</button>
+    </div>
+  </div>
+
+  <script type="module" src="detail.js"></script>
+</body>
+</html>

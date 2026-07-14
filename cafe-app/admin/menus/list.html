@@ -5,34 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>관리자 - 메뉴 목록</title>
   <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../index.css"> <!-- 사이드바/공통 스타일 공유 -->
   <link rel="stylesheet" href="list.css">
 </head>
 <body>
   <div class="admin-container">
-    <header class="admin-header">
+    <aside class="sidebar">
       <div class="logo">☕ Cafe Admin</div>
-      <nav class="admin-nav">
-        <a href="../index.html">대시보드</a>
-        <a href="list.html" class="active">메뉴 관리</a>
-        <a href="../orders/list.html">주문 관리</a>
+      <nav class="menu-links">
+        <a href="/admin/index.html">대시보드</a>
+        <a href="/admin/menus/list.html" class="active">메뉴 관리</a>
+        <a href="/admin/orders/list.html">주문 관리</a>
+        <a href="/index.html" class="home-link">고객 페이지로</a>
       </nav>
-    </header>
+    </aside>
 
-    <main class="admin-main">
-      <div class="page-header">
-        <h2>메뉴 목록 관리</h2>
+    <main class="main-content">
+      <header class="content-header">
+        <h1>메뉴 목록 관리</h1>
         <a href="create.html" class="btn btn-primary">+ 새 메뉴 등록</a>
-      </div>
+      </header>
 
-      <div class="category-tabs" id="categoryTabs">
-        <button class="tab-btn active" data-category="all">전체</button>
-        <button class="tab-btn" data-category="coffee">커피</button>
-        <button class="tab-btn" data-category="tea">차</button>
-        <button class="tab-btn" data-category="dessert">디저트</button>
-        <button class="tab-btn" data-category="bakery">베이커리</button>
-      </div>
+      <div class="menus-box glass">
+        <div class="category-tabs" id="categoryTabs">
+          <button class="tab-btn active" data-category="all">전체</button>
+          <button class="tab-btn" data-category="coffee">커피</button>
+          <button class="tab-btn" data-category="non-coffee">논커피</button>
+          <button class="tab-btn" data-category="tea">티</button>
+          <button class="tab-btn" data-category="smoothie">스무디/프라페</button>
+          <button class="tab-btn" data-category="ade">에이드/주스</button>
+          <button class="tab-btn" data-category="bakery">베이커리</button>
+          <button class="tab-btn" data-category="dessert">디저트</button>
+        </div>
 
-      <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
     </main>
   </div>
 
