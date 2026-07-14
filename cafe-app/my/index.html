@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>마이페이지 | Cafe App</title>
+  <!-- 배포 서버가 /my(슬래시 없음)으로 clean-url 처리를 할 경우
+       상대경로 CSS/링크가 루트 기준으로 깨지는 것을 방지 -->
+  <script>
+    if (!location.pathname.endsWith('/')) {
+      location.replace(location.pathname + '/' + location.search + location.hash);
+    }
+  </script>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="index.css">
 </head>
@@ -16,7 +23,7 @@
         <a href="../menus/list.html">메뉴판</a>
         <a href="../basket/list.html">장바구니</a>
         <a href="../orders/list.html">주문내역</a>
-        <a href="index.html" class="active">마이페이지</a>
+        <a href="./" class="active">마이페이지</a>
       </nav>
     </header>
 

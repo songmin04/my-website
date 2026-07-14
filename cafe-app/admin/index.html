@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>카페 관리자 - 대시보드</title>
+  <!-- 배포 서버가 /admin(슬래시 없음)으로 clean-url 처리를 할 경우
+       상대경로 CSS/링크가 루트 기준으로 깨지는 것을 방지 -->
+  <script>
+    if (!location.pathname.endsWith('/')) {
+      location.replace(location.pathname + '/' + location.search + location.hash);
+    }
+  </script>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="index.css">
 </head>
@@ -13,7 +20,7 @@
     <aside class="sidebar">
       <div class="logo">☕ Cafe Admin</div>
       <nav class="menu-links">
-        <a href="index.html" class="active">대시보드</a>
+        <a href="./" class="active">대시보드</a>
         <a href="menus/list.html">메뉴 관리</a>
         <a href="orders/list.html">주문 관리</a>
         <a href="../index.html" class="home-link">고객 페이지로</a>
