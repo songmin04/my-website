@@ -12,7 +12,7 @@ const menu = getMenuById(menuId);
 
 if (!menuId || !menu) {
   alert('잘못된 접근입니다. 메뉴 ID가 필요하거나 존재하지 않는 메뉴입니다.');
-  window.location.href = 'list';
+  window.location.href = 'list.html';
   throw new Error('Menu ID is missing or menu does not exist.');
 }
 
@@ -28,7 +28,7 @@ if (pageTitle) {
 
 if (cancelBtn) {
   cancelBtn.addEventListener('click', () => {
-    window.location.href = `detail?id=${encodeURIComponent(menuId)}`;
+    window.location.href = `detail.html?id=${encodeURIComponent(menuId)}`;
   });
 }
 
@@ -57,6 +57,6 @@ if (editForm) {
 
     updateMenu(menuId, updatedFields);
     alert('메뉴가 성공적으로 수정되었습니다.');
-    window.location.href = `detail?id=${encodeURIComponent(menuId)}`;
+    window.location.href = `detail.html?id=${encodeURIComponent(menuId)}`;
   });
 }

@@ -87,7 +87,7 @@ function init() {
     // 카드 자체를 클릭하면 메뉴 상세 페이지로 이동하도록 설정
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
-      window.location.href = `menus/detail?id=${menu.id}`;
+      window.location.href = `menus/detail.html?id=${menu.id}`;
     });
 
     recommendGrid.appendChild(card);

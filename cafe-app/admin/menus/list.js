@@ -50,8 +50,8 @@ function renderMenus(categoryFilter = 'all') {
           <span class="status-badge available">판매중</span>
         </div>
         <div class="card-actions">
-          <a href="./detail?id=${menu.id}" class="btn-sm btn-secondary">상세보기</a>
-          <a href="./edit?id=${menu.id}" class="btn-sm btn-outline">수정</a>
+          <a href="./detail.html?id=${menu.id}" class="btn-sm btn-secondary">상세보기</a>
+          <a href="./edit.html?id=${menu.id}" class="btn-sm btn-outline">수정</a>
         </div>
       </div>
     `;

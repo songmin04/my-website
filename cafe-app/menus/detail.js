@@ -15,7 +15,7 @@ function renderDetail() {
     menuDetailContainer.innerHTML = `
       <div class="error-box">
         <p>존재하지 않거나 삭제된 메뉴입니다.</p>
-        <a href="list" class="btn btn-primary">메뉴 목록으로 돌아가기</a>
+        <a href="list.html" class="btn btn-primary">메뉴 목록으로 돌아가기</a>
       </div>
     `;
     return;
@@ -215,7 +215,7 @@ function hideCartModal() {
 
 cartModalClose.addEventListener("click", hideCartModal);
 cartModalConfirm.addEventListener("click", () => {
-  window.location.href = "../basket/list";
+  window.location.href = "../basket/list.html";
 });
 
 renderDetail();

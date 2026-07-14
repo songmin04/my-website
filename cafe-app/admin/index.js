@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   tableBody.innerHTML = recentOrders.map(order => {
     const summaryText = (order.items || []).map(i => `${formatItemName(i)} x${i.quantity}`).join(', ');
     return `
-    <tr style="cursor: pointer;" onclick="location.href='orders/detail?id=${order.id}'">
+    <tr style="cursor: pointer;" onclick="location.href='orders/detail.html?id=${order.id}'">
       <td>#${order.id.slice(-4)}</td>
       <td>${formatDate(order.createdAt)}</td>
       <td>${summaryText}</td>

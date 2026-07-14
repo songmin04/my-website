@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return `
         <tr>
-          <td style="cursor:pointer;" onclick="location.href='detail?id=${order.id}'"><strong>#${order.id.slice(-5)}</strong></td>
+          <td style="cursor:pointer;" onclick="location.href='detail.html?id=${order.id}'"><strong>#${order.id.slice(-5)}</strong></td>
           <td>${formatDate(order.createdAt)}</td>
-          <td style="cursor:pointer;" onclick="location.href='detail?id=${order.id}'">${summaryItems}</td>
+          <td style="cursor:pointer;" onclick="location.href='detail.html?id=${order.id}'">${summaryItems}</td>
           <td>${formatPrice(order.total || 0)}</td>
           <td>
             <select class="status-select" data-id="${order.id}">
